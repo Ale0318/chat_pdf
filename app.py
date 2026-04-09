@@ -12,32 +12,17 @@ import platform
 # ----------- ESTILOS PERSONALIZADOS -----------
 st.markdown("""
     <style>
-    .main {
+    /* Fondo completo */
+    .stApp {
         background-color: #f5f5dc; /* blanco hueso */
+    }
+
+    /* Texto general */
+    .block-container {
         color: #1e293b;
     }
 
-    h1 {
-        background: linear-gradient(90deg, #6366f1, #ec4899);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 42px;
-        text-align: center;
-    }
-
-    p {
-        color: #475569;
-        text-align: center;
-    }
-
-    .stButton>button {
-        background-color: #6366f1;
-        color: white;
-        border-radius: 10px;
-        padding: 10px 20px;
-        border: none;
-    }
-
+    /* Inputs */
     .stTextInput>div>div>input {
         background-color: #ffffff;
         color: #1e293b;
@@ -50,6 +35,16 @@ st.markdown("""
         border-radius: 8px;
     }
 
+    /* Botones */
+    .stButton>button {
+        background-color: #6366f1;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        border: none;
+    }
+
+    /* File uploader */
     .stFileUploader {
         background-color: #ffffff;
         padding: 10px;
@@ -59,19 +54,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ----------- TÍTULO -----------
-st.markdown("""
-    <h1 style='
-        text-align: center;
-        font-size: 48px;
-        font-weight: bold;
-        color: #1e293b;
-        margin-bottom: 10px;
-    '>
-        💬 Chat PDF
-    </h1>
-""", unsafe_allow_html=True)
-
-st.markdown(f"<p>Python version: {platform.python_version()}</p>", unsafe_allow_html=True)
+st.title("💬 Chat PDF")
+st.write("Versión de Python:", platform.python_version())
 
 # ----------- IMAGEN -----------
 try:
@@ -121,7 +105,7 @@ if pdf is not None and ke:
         embeddings = OpenAIEmbeddings()
         knowledge_base = FAISS.from_texts(chunks, embeddings)
 
-        st.markdown("## ❓ Haz tu pregunta")
+        st.subheader("❓ Haz tu pregunta")
         user_question = st.text_area("", placeholder="Ej: ¿Cuál es la idea principal del documento?")
 
         if user_question:
@@ -132,7 +116,7 @@ if pdf is not None and ke:
             chain = load_qa_chain(llm, chain_type="stuff")
             response = chain.run(input_documents=docs, question=user_question)
 
-            st.markdown("## 🧠 Respuesta")
+            st.subheader("🧠 Respuesta")
             st.success(response)
 
     except Exception as e:
