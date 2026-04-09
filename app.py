@@ -59,7 +59,18 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ----------- TÍTULO -----------
-st.markdown("<h1>💬 Chat PDF</h1>", unsafe_allow_html=True)
+st.markdown("""
+    <h1 style='
+        text-align: center;
+        font-size: 48px;
+        font-weight: bold;
+        color: #1e293b;
+        margin-bottom: 10px;
+    '>
+        💬 Chat PDF
+    </h1>
+""", unsafe_allow_html=True)
+
 st.markdown(f"<p>Python version: {platform.python_version()}</p>", unsafe_allow_html=True)
 
 # ----------- IMAGEN -----------
