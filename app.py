@@ -54,7 +54,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ----------- TÍTULO -----------
-st.title("💬 Chat PDF")
+st.title("💬 Chat Museos")
 st.write("Versión de Python:", platform.python_version())
 
 # ----------- IMAGEN -----------
