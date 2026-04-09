@@ -13,7 +13,7 @@ import platform
 st.markdown("""
     <style>
     body {
-        background-color: #0f172a;
+        background-color: #f9faf5;
     }
     .main {
         background: linear-gradient(135deg, #0f172a, #1e293b);
