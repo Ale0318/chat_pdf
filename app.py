@@ -12,40 +12,55 @@ import platform
 # ----------- ESTILOS PERSONALIZADOS -----------
 st.markdown("""
     <style>
-    body {
-        background-color: #f9faf5;
-    }
     .main {
-        background: linear-gradient(135deg, #0f172a, #1e293b);
-        color: white;
+        background-color: #f5f5dc; /* blanco hueso */
+        color: #1e293b;
     }
+
     h1 {
-        background: linear-gradient(90deg, #38bdf8, #a78bfa);
+        background: linear-gradient(90deg, #6366f1, #ec4899);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 42px;
         text-align: center;
     }
+
+    p {
+        color: #475569;
+        text-align: center;
+    }
+
     .stButton>button {
         background-color: #6366f1;
         color: white;
         border-radius: 10px;
         padding: 10px 20px;
+        border: none;
     }
+
     .stTextInput>div>div>input {
-        background-color: #1e293b;
-        color: white;
+        background-color: #ffffff;
+        color: #1e293b;
+        border-radius: 8px;
     }
+
     .stTextArea textarea {
-        background-color: #1e293b;
-        color: white;
+        background-color: #ffffff;
+        color: #1e293b;
+        border-radius: 8px;
+    }
+
+    .stFileUploader {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px;
     }
     </style>
 """, unsafe_allow_html=True)
 
 # ----------- TÍTULO -----------
 st.markdown("<h1>🤖 RAG PDF Assistant</h1>", unsafe_allow_html=True)
-st.markdown(f"<p style='text-align:center;'>Python version: {platform.python_version()}</p>", unsafe_allow_html=True)
+st.markdown(f"<p>Python version: {platform.python_version()}</p>", unsafe_allow_html=True)
 
 # ----------- IMAGEN -----------
 try:
@@ -59,7 +74,7 @@ with st.sidebar:
     st.markdown("## 📄 Asistente de PDFs")
     st.markdown("Este agente te ayudará a analizar documentos usando IA 🚀")
     st.markdown("---")
-    st.markdown("💡 *Tip:* Haz preguntas claras para mejores respuestas")
+    st.markdown("💡 Tip: Haz preguntas claras para mejores respuestas")
 
 # ----------- API KEY -----------
 ke = st.text_input('🔑 Ingresa tu Clave de OpenAI', type="password")
